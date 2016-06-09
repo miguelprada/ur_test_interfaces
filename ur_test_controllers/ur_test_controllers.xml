@@ -6,4 +6,10 @@
     </description>
   </class>
 
+  <class name="ur_test_controllers/NullVelPidController" type="ur_test_controllers::NullVelPidController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      Null velocity controller, regulated by a PID.
+    </description>
+  </class>
+
 </library>

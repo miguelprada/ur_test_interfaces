@@ -5,6 +5,7 @@ find_package(catkin REQUIRED COMPONENTS
   controller_interface
   hardware_interface
   realtime_tools
+  control_toolbox
 )
 
 catkin_package()
@@ -15,6 +16,7 @@ include_directories(
 
 add_library( ${PROJECT_NAME}
   src/ur_test_nullvel_controller.cpp
+  src/ur_test_nullvel_pid_controller.cpp
 )
 
 target_link_libraries( ${PROJECT_NAME}
