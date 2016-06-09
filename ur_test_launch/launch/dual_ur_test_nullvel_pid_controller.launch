@@ -1,0 +1,45 @@
+<launch>
+
+  <arg name="min_payload"  default="0.0"/>
+  <arg name="max_payload"  default="3.0"/>
+  <arg name="max_velocity" default="10.0"/>
+
+  <rosparam file="$(find ur_test_launch)/config/dual_ur_driver_config.yaml" command="load"/>
+  <rosparam file="$(find ur_test_launch)/config/dual_ur_test_controllers.yaml" command="load"/>
+
+  <group ns="left_arm">
+    
+    <node name="ur_hardware_interface" pkg="ur_modern_driver" type="ur_driver" output="screen">
+      <param name="robot_ip_address" type="str" value="192.168.0.201"/>
+      <param name="reverse_port" type="int" value="50001"/>
+      <param name="min_payload" type="double" value="$(arg min_payload)"/>
+      <param name="max_payload" type="double" value="$(arg max_payload)"/>
+      <param name="max_velocity" type="double" value="$(arg max_velocity)"/>
+      <param name="use_ros_control" type="bool" value="True"/>
+    </node>
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="nullvel_pid_controller joint_state_controller --shutdown-timeout 0.5"/>
+
+  </group>
+
+  <group ns="right_arm">
+    
+    <node name="ur_hardware_interface" pkg="ur_modern_driver" type="ur_driver" output="screen">
+      <param name="robot_ip_address" type="str" value="192.168.0.202"/>
+      <param name="reverse_port" type="int" value="50002"/>
+      <param name="min_payload" type="double" value="$(arg min_payload)"/>
+      <param name="max_payload" type="double" value="$(arg max_payload)"/>
+      <param name="max_velocity" type="double" value="$(arg max_velocity)"/>
+      <param name="use_ros_control" type="bool" value="True"/>
+    </node>
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="nullvel_pid_controller joint_state_controller --shutdown-timeout 0.5"/>
+
+  </group>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <rosparam param="source_list">[/left_arm/joint_states, /right_arm/joint_states]</rosparam>
+    <param name="rate" value="125"/>
+  </node>
+
+</launch>

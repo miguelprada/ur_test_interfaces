@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dual_ur">
+
+  <xacro:include filename="$(find ur_description)/urdf/ur10.urdf.xacro"/>
+
+  <link name="base_link"/>
+
+  <joint name="right_arm_base_joint" type="fixed">
+    <origin xyz="0 0.25 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="right_arm_base_link"/>
+  </joint>
+  <xacro:ur10_robot prefix="right_arm_" joint_limited="false"/>
+
+  <joint name="left_arm_base_joint" type="fixed">
+    <origin xyz="0 -0.25 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="left_arm_base_link"/>
+  </joint>
+  <xacro:ur10_robot prefix="left_arm_" joint_limited="false"/>
+
+</robot>
