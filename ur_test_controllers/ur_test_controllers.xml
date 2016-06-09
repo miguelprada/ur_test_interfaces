@@ -1,0 +1,9 @@
+<library path="lib/libur_test_controllers">
+
+  <class name="ur_test_controllers/NullVelController" type="ur_test_controllers::NullVelController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      Null velocity controller.
+    </description>
+  </class>
+
+</library>

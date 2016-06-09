@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+
+  <name>ur_test_launch</name>
+  <version>0.0.0</version>
+  <description>The ur_test_launch package</description>
+  <maintainer email="miguel.prada@todo.todo">mprada</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+  </export>
+
+</package>

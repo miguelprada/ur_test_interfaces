@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package>
+
+  <name>ur_test_controllers</name>
+  <version>0.0.0</version>
+  <description>The ur_test_controllers package</description>
+  <maintainer email="miguel.prada@todo.todo">mprada</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>controller_interface</build_depend>
+  <build_depend>hardware_interface</build_depend>
+  <build_depend>realtime_tools</build_depend>
+
+  <run_depend>controller_interface</run_depend>
+  <run_depend>hardware_interface</run_depend>
+  <run_depend>realtime_tools</run_depend>
+
+  <export>
+    <controller_interface plugin="${prefix}/ur_test_controllers.xml"/>
+  </export>
+  
+</package>
