@@ -6,6 +6,7 @@ find_package(catkin REQUIRED COMPONENTS
   hardware_interface
   realtime_tools
   control_toolbox
+  joint_trajectory_controller
 )
 
 catkin_package()

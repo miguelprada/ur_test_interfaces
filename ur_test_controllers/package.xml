@@ -13,11 +13,13 @@
   <build_depend>hardware_interface</build_depend>
   <build_depend>realtime_tools</build_depend>
   <build_depend>control_toolbox</build_depend>
+  <build_depend>joint_trajectory_controller</build_depend>
 
   <run_depend>controller_interface</run_depend>
   <run_depend>hardware_interface</run_depend>
   <run_depend>realtime_tools</run_depend>
   <run_depend>control_toolbox</run_depend>
+  <run_depend>joint_trajectory_controller</run_depend>
 
   <export>
     <controller_interface plugin="${prefix}/ur_test_controllers.xml"/>
