@@ -18,6 +18,59 @@ nullvel_pid_controller:
     - wrist_2_joint
     - wrist_3_joint
 
+sinusoid_controller:
+  type: ur_test_controllers/PositionSinusoidController
+  joints:
+    - shoulder_pan_joint
+    - shoulder_lift_joint
+    - elbow_joint
+    - wrist_1_joint
+    - wrist_2_joint
+    - wrist_3_joint
+  sinusoid_joint: wrist_1_joint
+  sinusoid_amplitude: 1.0
+  sinusoid_rate: 0.5
+
+vel_sinusoid_controller:
+  type: ur_test_controllers/VelocitySinusoidController
+  joints:
+    - shoulder_pan_joint
+    - shoulder_lift_joint
+    - elbow_joint
+    - wrist_1_joint
+    - wrist_2_joint
+    - wrist_3_joint
+  sinusoid_joint: wrist_1_joint
+  sinusoid_amplitude: 1.0
+  sinusoid_rate: 0.2
+  gains:
+    shoulder_pan_joint: {p: 1.0,  i: 0.0, d: 0.1, i_clamp: 1}
+    shoulder_lift_joint: {p: 1.0,  i: 0.0, d: 0.1, i_clamp: 1}
+    elbow_joint: {p: 1.0,  i: 0.0, d: 0.1, i_clamp: 1}
+    wrist_1_joint: {p: 1.0,  i: 0.0, d: 0.1, i_clamp: 1}
+    wrist_2_joint: {p: 1.0,  i: 0.0, d: 0.1, i_clamp: 1}
+    wrist_3_joint: {p: 1.0,  i: 0.0, d: 0.1, i_clamp: 1}
+
+no_pid_vel_sinusoid_controller:
+  type: ur_test_controllers/VelocitySinusoidController
+  joints:
+    - shoulder_pan_joint
+    - shoulder_lift_joint
+    - elbow_joint
+    - wrist_1_joint
+    - wrist_2_joint
+    - wrist_3_joint
+  sinusoid_joint: wrist_1_joint
+  sinusoid_amplitude: 1.0
+  sinusoid_rate: 0.2
+  gains:
+    shoulder_pan_joint: {p: 0.0,  i: 0.0, d: 0.0, i_clamp: 1}
+    shoulder_lift_joint: {p: 0.0,  i: 0.0, d: 0.0, i_clamp: 1}
+    elbow_joint: {p: 0.0,  i: 0.0, d: 0.0, i_clamp: 1}
+    wrist_1_joint: {p: 0.0,  i: 0.0, d: 0.0, i_clamp: 1}
+    wrist_2_joint: {p: 0.0,  i: 0.0, d: 0.0, i_clamp: 1}
+    wrist_3_joint: {p: 0.0,  i: 0.0, d: 0.0, i_clamp: 1}
+
 joint_trajectory_controller:
   type: velocity_controllers/JointTrajectoryController
   joints:

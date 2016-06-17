@@ -12,4 +12,16 @@
     </description>
   </class>
 
+  <class name="ur_test_controllers/PositionSinusoidController" type="ur_test_controllers::PositionSinusoidController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      Null velocity controller, regulated by a PID.
+    </description>
+  </class>
+
+  <class name="ur_test_controllers/VelocitySinusoidController" type="ur_test_controllers::VelocitySinusoidController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      Null velocity controller, regulated by a PID.
+    </description>
+  </class>
+
 </library>

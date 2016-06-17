@@ -18,6 +18,7 @@ include_directories(
 add_library( ${PROJECT_NAME}
   src/ur_test_nullvel_controller.cpp
   src/ur_test_nullvel_pid_controller.cpp
+  src/ur_test_sinusoid_controller.cpp
 )
 
 target_link_libraries( ${PROJECT_NAME}

@@ -1,0 +1,22 @@
+<launch>
+
+  <arg name="min_payload"  default="0.0"/>
+  <arg name="max_payload"  default="3.0"/>
+  <arg name="max_velocity" default="10.0"/>
+
+  <node name="ur_hardware_interface" pkg="ur_modern_driver" type="ur_driver" output="screen">
+    <param name="robot_ip_address" type="str" value="192.168.0.201"/>
+    <param name="min_payload" type="double" value="$(arg min_payload)"/>
+    <param name="max_payload" type="double" value="$(arg max_payload)"/>
+    <param name="max_velocity" type="double" value="$(arg max_velocity)"/>
+    <param name="use_ros_control" type="bool" value="True"/>
+  </node>
+
+  <rosparam file="$(find ur_test_launch)/config/ur_driver_config.yaml" command="load"/>
+  <rosparam file="$(find ur_test_launch)/config/ur_test_controllers.yaml" command="load"/>
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller --shutdown-timeout 0.5"/>
+
+  <node name="stopped_controller_spawner" pkg="controller_manager" type="spawner" args="--stopped no_pid_vel_sinusoid_controller --shutdown-timeout 0.5" />
+
+</launch>
